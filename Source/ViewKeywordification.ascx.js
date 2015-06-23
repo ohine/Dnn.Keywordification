@@ -9,14 +9,15 @@ WinDoH.ViewKeywordification = function() {
     WinDoH.ViewKeywordification.initializeBase(this);
     //Member Variables
     this._msgs = {};
-    this._helloButton = null;
+    this._loadDataButton = null;
+    this._cancelButton = null;
     this._lasttabid = null;
     this._portalId = null;
 
     //Associated delegates to single member variable dictionary to make it easy to dispose
     this._delegates = {
-        _helloSuccessDelegate: Function.createDelegate(this, this._helloSuccess),
-        _helloFailDelegate: Function.createDelegate(this, this._helloFail),
+        _loadDataSuccessDelegate: Function.createDelegate(this, this._loadDataSuccess),
+        _loadDataFailDelegate: Function.createDelegate(this, this._loadDataFail),
         _onLoadDelegate: Function.createDelegate(this, this._onLoad),
 
         _onGridSaveDelegate: Function.createDelegate(this, this._onGridSave),
@@ -46,12 +47,18 @@ WinDoH.ViewKeywordification.prototype =
         WinDoH.ViewKeywordification.callBaseMethod(this, 'initialize');
 
         //create UI
-        this._helloButton = this._createChildControl('btnHello', 'input', 'button');
-        this._helloButton.value = this.getMessage('bFetchData.Initial'); //get localized value
-        $get(this.get_ns() + 'pnl').parentNode.appendChild(this._helloButton);
+        this._loadDataButton = this._createChildControl('btnLoadData', 'input', 'button');
+        this._loadDataButton.value = this.getMessage('bFetchData.Initial'); //get localized value
+        $get(this.get_ns() + 'pnl').parentNode.appendChild(this._loadDataButton);
+
+        this._cancelButton = this._createChildControl('btnCancelEditRow', 'input', 'button');
+        this._cancelButton.value = this.getMessage('bFetchData.Cancel'); //get localized value
+        this._cancelButton.style.display = 'none';
+        $get(this.get_ns() + 'pnl').parentNode.appendChild(this._cancelButton);
 
         //hookup event handlers
-        $addHandlers(this._helloButton, { "click": this._onHello }, this);
+        $addHandlers(this._loadDataButton, { "click": this._onLoadData }, this);
+        $addHandlers(this._cancelButton, { "click": this._onGridRowCancel }, this);
     },
 
     _onLoad: function(src, arg) {
@@ -66,7 +73,7 @@ WinDoH.ViewKeywordification.prototype =
         }
     },
 
-    _onHello: function(src, arg) {
+    _onLoadData: function(src, arg) {
         this._displayWait(true);
 
         $('#' + this.get_ns() + 'jqgrid').jqGrid({
@@ -117,9 +124,9 @@ WinDoH.ViewKeywordification.prototype =
 
 
         dnn.xmlhttp.callControlMethod('WinDoH.ViewKeywordification.' + this.get_id(),
-            'GetPortalTabs', { portalId: this.get_PortalId() }, this._delegates._helloSuccessDelegate, this._delegates._helloFailDelegate);
+            'GetPortalTabs', { portalId: this.get_PortalId() }, this._delegates._loadDataSuccessDelegate, this._delegates._loadDataFailDelegate);
 
-        this.raisePropertyChanged('SayHello');
+        this.raisePropertyChanged('LoadedData');
     },
 
     _onPropChanged: function(src, args) {
@@ -127,7 +134,6 @@ WinDoH.ViewKeywordification.prototype =
     },
 
     _onGridSaved: function(src, arg) {
-
         this.raisePropertyChanged('RowUpdated');
     },
     _onGridSave: function(src, arg) {
@@ -138,8 +144,13 @@ WinDoH.ViewKeywordification.prototype =
 
             var ret = $('#' + this.get_ns() + 'jqgrid').getRowData(this.get_lasttabid());
 
-            dnn.xmlhttp.callControlMethod('WinDoH.ViewKeywordification.' + this.get_id(), 'SaveGridRow', { tabId: ret.TabID, name: ret.TabName, title: ret.Title, description: ret.Description, keywords: ret.KeyWords, priority: ret.SiteMapPriority }, this._delegates._onGridSavedDelegate, this._delegates._helloFailDelegate);
+            dnn.xmlhttp.callControlMethod('WinDoH.ViewKeywordification.' + this.get_id(), 'SaveGridRow', { tabId: ret.TabID, name: ret.TabName, title: ret.Title, description: ret.Description, keywords: ret.KeyWords, priority: ret.SiteMapPriority }, this._delegates._onGridSavedDelegate, this._delegates._loadDataFailDelegate);
 
+        }
+    },
+    _onGridRowCancel: function(src, arg) {
+        if (this.get_lasttabid()) {
+            $('#' + this.get_ns() + 'jqgrid').restoreRow(this.get_lasttabid());
         }
     },
 
@@ -165,24 +176,24 @@ WinDoH.ViewKeywordification.prototype =
         $get(this.get_ns() + 'imgAjax').className = (show ? '' : 'ceHidden');
     },
 
-    _helloSuccess: function(payload, ctx, req) {
+    _loadDataSuccess: function (payload, ctx, req) {
         this._displayWait(false);
-        //this.showMessage(payload);
-        this._helloButton.value = this.getMessage('bFetchData.Refresh');
+
+        $('#'+ this.get_ns() + 'btnCancelEditRow').show();
+        this._loadDataButton.value = this.getMessage('bFetchData.Refresh');
 
         var myjqg = $('#' + this.get_ns() + 'jqgrid')[0];
         myjqg.addJSONData(payload);
- 
     },
 
-    _helloFail: function(payload, ctx, req) {
+    _loadDataFail: function (payload, ctx, req) {
         this._displayWait(false);
         alert('error: ' + payload);
     },
 
     dispose: function() {
-        $clearHandlers(this._helloButton);
-        this._helloButton = null;
+        $clearHandlers(this._loadDataButton);
+        this._loadDataButton = null;
         this._delegates = null;
         WinDoH.ViewKeywordification.callBaseMethod(this, 'dispose');
     }

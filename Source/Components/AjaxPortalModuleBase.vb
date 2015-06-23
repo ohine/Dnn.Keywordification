@@ -1,9 +1,5 @@
-' Template Provided By
-' Code Endeavors, LLC - http://www.codeendeavors.com
-
 Imports System.Web.Script.Serialization
 Imports DotNetNuke
-Imports DotNetNuke.Common
 Imports DotNetNuke.UI.Utilities
 
 Namespace Modules.Keywordification
@@ -11,9 +7,9 @@ Namespace Modules.Keywordification
     Public Class AjaxPortalModuleBase
         Inherits Entities.Modules.PortalModuleBase : Implements IScriptControl
 
-        Protected Event AddScriptComponentDescriptors(ByVal Descriptor As ScriptComponentDescriptor)
-        Protected Event AddScriptReferences(ByVal References As List(Of ScriptReference))
-        Protected Event AddLocalizedMessages(ByVal Messages As Dictionary(Of String, String))
+        Protected Friend Event AddScriptComponentDescriptors(ByVal descriptor As ScriptComponentDescriptor)
+        Protected Friend Event AddScriptReferences(ByVal references As List(Of ScriptReference))
+        Protected Friend Event AddLocalizedMessages(ByVal messages As Dictionary(Of String, String))
 
 #Region "Event Handlers"
         'Enable Control Callbacks for this module

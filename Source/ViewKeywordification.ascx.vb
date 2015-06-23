@@ -1,8 +1,6 @@
 
 Imports System.Web.UI
 Imports System.Collections.Generic
-Imports System.Reflection
-
 Imports DotNetNuke
 Imports DotNetNuke.Services.Exceptions
 Imports DotNetNuke.Services.Localization
@@ -22,13 +20,13 @@ Namespace Modules.Keywordification
         '-      get_ImagePath: function() {return this._imagePath;},
         '-      set_ImagePath: function(value) {this._imagePath = value;},
         '-------------------------------------------------------------------------------------------------------------
-        Protected Sub AjaxPortalModuleBase_AddScriptComponentDescriptors(ByVal Descriptor As ScriptComponentDescriptor) Handles MyBase.AddScriptComponentDescriptors
+        Protected Sub AjaxPortalModuleBase_AddScriptComponentDescriptors(ByVal descriptor As ScriptComponentDescriptor) Handles MyBase.AddScriptComponentDescriptors
             'IMPORTANT!  Enter Client Namespace + ObjectName as Type
-            Descriptor.Type = "WinDoH.ViewKeywordification"
+            descriptor.Type = "WinDoH.ViewKeywordification"
 
             '---------------------------------------------------------------------------------------------------------
             'Add custom properties here
-            Descriptor.AddScriptProperty("PortalId", Me.PortalId) 'String.Format("'{0}'", Me.ModulePath & "images/"))
+            descriptor.AddScriptProperty("PortalId", Me.PortalId) 'String.Format("'{0}'", Me.ModulePath & "images/"))
             '---------------------------------------------------------------------------------------------------------
         End Sub
 
@@ -36,24 +34,25 @@ Namespace Modules.Keywordification
         '- This is where your client-side javascript that uses the MS AJAX framework needs to be registered
         '- Adding the reference here ensures that the MS AJAX script is run before our script which uses things like Type.registerNamespace run
         '-------------------------------------------------------------------------------------------------------------
-        Protected Sub AjaxPortalModuleBase_AddScriptReferences(ByVal References As List(Of ScriptReference)) Handles MyBase.AddScriptReferences
-            References.Add(New System.Web.UI.ScriptReference(Me.ControlPath & "jqgrid/js/i18n/grid.locale-en.js"))
-            References.Add(New System.Web.UI.ScriptReference(Me.ControlPath & "jqgrid/js/jquery.jqGrid.min.js"))
-            References.Add(New System.Web.UI.ScriptReference(Me.ControlPath & "ViewKeywordification.ascx.js"))
+        Protected Sub AjaxPortalModuleBase_AddScriptReferences(ByVal references As List(Of ScriptReference)) Handles MyBase.AddScriptReferences
+            references.Add(New System.Web.UI.ScriptReference(Me.ControlPath & "jqgrid/js/i18n/grid.locale-en.js"))
+            references.Add(New System.Web.UI.ScriptReference(Me.ControlPath & "jqgrid/js/jquery.jqGrid.min.js"))
+            references.Add(New System.Web.UI.ScriptReference(Me.ControlPath & "ViewKeywordification.ascx.js"))
         End Sub
 
         '-------------------------------------------------------------------------------------------------------------
         '- Add any localized text needed on the client
         '-------------------------------------------------------------------------------------------------------------
-        Protected Sub AjaxPortalModuleBase_AddLocalizedMessages(ByVal Messages As Dictionary(Of String, String)) Handles MyBase.AddLocalizedMessages
-            Messages("bFetchData.Initial") = Localization.GetString("btnFetchData.Initial", LocalResourceFile)
-            Messages("bFetchData.Refresh") = Localization.GetString("btnFetchData.Refresh", LocalResourceFile)
-            Messages("Column.TabName") = Localization.GetString("Column.TabName", LocalResourceFile)
-            Messages("Column.Title") = Localization.GetString("Column.Title", LocalResourceFile)
-            Messages("Column.Keywords") = Localization.GetString("Column.Keywords", LocalResourceFile)
-            Messages("Column.Description") = Localization.GetString("Column.Description", LocalResourceFile)
-            Messages("Column.Priority") = Localization.GetString("Column.Priority", LocalResourceFile)
-            Messages("Grid.Title") = Localization.GetString("Grid.Title", LocalResourceFile)
+        Protected Sub AjaxPortalModuleBase_AddLocalizedMessages(ByVal messages As Dictionary(Of String, String)) Handles MyBase.AddLocalizedMessages
+            messages("bFetchData.Initial") = Localization.GetString("btnFetchData.Initial", LocalResourceFile)
+            messages("bFetchData.Refresh") = Localization.GetString("btnFetchData.Refresh", LocalResourceFile)
+            messages("bFetchData.Cancel") = Localization.GetString("btnFetchData.Cancel", LocalResourceFile)
+            messages("Column.TabName") = Localization.GetString("Column.TabName", LocalResourceFile)
+            messages("Column.Title") = Localization.GetString("Column.Title", LocalResourceFile)
+            messages("Column.Keywords") = Localization.GetString("Column.Keywords", LocalResourceFile)
+            messages("Column.Description") = Localization.GetString("Column.Description", LocalResourceFile)
+            messages("Column.Priority") = Localization.GetString("Column.Priority", LocalResourceFile)
+            messages("Grid.Title") = Localization.GetString("Grid.Title", LocalResourceFile)
         End Sub
 
 #End Region

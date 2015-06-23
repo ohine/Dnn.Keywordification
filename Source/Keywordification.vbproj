@@ -149,7 +149,6 @@
     <Content Include="Documentation\file.gif" />
     <Content Include="ViewKeywordification.ascx" />
     <Content Include="ViewKeywordification.ascx.js" />
-    <Content Include="OliverHine.ico" />
     <Content Include="ajaxanim.gif" />
     <Content Include="license.txt" />
     <Content Include="releasenotes.txt" />
