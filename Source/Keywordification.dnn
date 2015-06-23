@@ -1,6 +1,6 @@
 ﻿<dotnetnuke type="Package" version="5.0">
     <packages>
-        <package name="Keywordification" type="Module" version="0.0.423">
+        <package name="Keywordification" type="Module" version="0.1.2193">
             <friendlyName>Keywordification</friendlyName>
             <description>used to quickly edit all tab name/title/keyword/descriptions at once with ease</description>
             <owner>

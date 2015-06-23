@@ -7,11 +7,11 @@ Imports System.Runtime.InteropServices
 ' associated with an assembly.
 
 ' Review the values of the assembly attributes
-<Assembly: AssemblyTitle("OliverHine Keywordification Module")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("OliverHine")> 
+<Assembly: AssemblyTitle("Keywordification for Dnn")> 
+<Assembly: AssemblyDescription("Keyword Editor for DotNetNuke")> 
+<Assembly: AssemblyCompany("Oliver Hine")> 
 <Assembly: AssemblyProduct("")> 
-<Assembly: AssemblyCopyright("")> 
+<Assembly: AssemblyCopyright("2015")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
@@ -25,4 +25,4 @@ Imports System.Runtime.InteropServices
 '
 ' You can specify all the values or you can default the Build and Revision Numbers 
 ' by using the '*' as shown below:
-<Assembly: AssemblyVersion("00.00.2193.00")> 
+<Assembly: AssemblyVersion("00.01.2193.00")> 
