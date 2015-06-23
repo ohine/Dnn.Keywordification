@@ -1,0 +1,26 @@
+﻿v0.0.423 : 8/17/2010 - 1am<br/>
+-replaced TabInfo with MiniTabInfo to only send back the fields exposed for editing in the datagrid<br/><br/>
+
+v0.0.210 : 1/16/2010 - 12pm<br/>
+-show all pages (including hidden, but not administration), not just the first 20<br/>
+-added redmond jqueryui theme<br/><br/>
+
+v0.0.200 : 1/6/2010 - 1am<br/>
+-upgraded to jqGrid v3.6.1<br/>
+-path corrected for virtual directory installations<br/><br/>
+
+v0.0.93 : 9/21/2009 - 11am<br/>
+-upgraded to jqGrid v3.5.3<br/><br/>
+
+v0.0.9 : 6/30/2009 - 10pm<br/>
+-fixed portalId so you can keywordify all your portals<br/><br/>
+
+v0.0.3 : 6/23/2009 - 10pm<br/>
+-rebuilt against v5.1.0.773<br/>
+-fixed saving 'KeyWords'<br/>
+-fixed invalid javascript path to jqgrid<br/>
+-add SiteMap Priority<br/><br/>
+
+
+v0.0.2 : 6/22/2009 - 1am<br/>
+-initial build

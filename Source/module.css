@@ -1,0 +1,24 @@
+﻿/* Module Specific CSS */
+
+@import url(jqgrid/css/ui.jqgrid.css);
+
+.ceLabel
+{
+	 font-family: Arial;
+	 font-size: 12pt;
+	 font-weight: bold;
+}
+
+.ceResponse
+{
+	 font-family: Arial;
+	 font-size: 10pt;
+	 color: Red;
+	 font-weight: bold;
+}
+
+.ceHidden
+{
+	display: none;
+}
+

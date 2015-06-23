@@ -1,0 +1,90 @@
+﻿<dotnetnuke type="Package" version="5.0">
+    <packages>
+        <package name="Keywordification" type="Module" version="0.0.423">
+            <friendlyName>Keywordification</friendlyName>
+            <description>used to quickly edit all tab name/title/keyword/descriptions at once with ease</description>
+            <owner>
+                <name>Oliver Hine</name>
+                <organization>Oliver Hine</organization>
+                <url>http://oliverhine.com</url>
+                <email>me@oliverhine.com</email>
+            </owner>
+            <license src="license.txt" />
+            <releaseNotes src="releasenotes.txt" />
+            <dependencies>
+                <dependency type="Type">DotNetNuke.UI.Utilities.MSAJAX</dependency>
+            </dependencies>
+            <components>
+              <component type="ResourceFile">
+                <resourceFiles>
+                  <basePath>DesktopModules\Keywordification</basePath>
+                  <resourceFile>
+                    <name>jqGridResources.zip</name>
+                  </resourceFile>
+                </resourceFiles>
+              </component>
+
+              <component type="Module">
+                    <desktopModule>
+                        <moduleName>Keywordification</moduleName>
+                        <foldername>Keywordification</foldername>
+                        <supportedFeatures />
+                        <moduleDefinitions>
+                            <moduleDefinition>
+                                <friendlyName>Keywordification</friendlyName>
+                                <defaultCacheTime>0</defaultCacheTime>
+                                <moduleControls>
+                                    <moduleControl>
+                                        <controlKey />
+                                        <controlSrc>DesktopModules/Keywordification/ViewKeywordification.ascx</controlSrc>
+                                        <supportsPartialRendering>False</supportsPartialRendering>
+                                        <controlTitle />
+                                        <controlType>View</controlType>
+                                        <iconFile />
+                                        <helpUrl />
+                                        <viewOrder>0</viewOrder>
+                                    </moduleControl>
+                                </moduleControls>
+                            </moduleDefinition>
+                        </moduleDefinitions>
+                    </desktopModule>
+                </component>
+                <component type="Assembly">
+                    <assemblies>
+                        <assembly>
+                            <path>bin</path>
+                            <name>OliverHine.Keywordification.dll</name>
+                        </assembly>
+                    </assemblies>
+                </component>
+                <component type="File">
+                    <files>
+                        <basePath>DesktopModules\Keywordification</basePath>
+                        <file>
+                            <path>app_localresources</path>
+                            <name>viewKeywordification.ascx.resx</name>
+                        </file>
+                        <file>
+                            <name>ajaxanim.gif</name>
+                        </file>
+                        <file>
+                            <name>module.css</name>
+                        </file>
+                        <file>
+                            <name>viewKeywordification.ascx</name>
+                        </file>
+                        <file>
+                            <name>viewKeywordification.ascx.js</name>
+                        </file>
+                        <file>
+                            <name>license.txt</name>
+                        </file>
+                        <file>
+                            <name>releasenotes.txt</name>
+                        </file>
+                    </files>
+                </component>
+            </components>
+        </package>
+    </packages>
+</dotnetnuke>

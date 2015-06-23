@@ -1,0 +1,93 @@
+<html>
+<head>
+    <title>DotNetNuke</title>
+    <link rel="stylesheet" type="text/css" href="Documentation.css">
+</head>
+<body bottommargin="5" leftmargin="5" topmargin="5" rightmargin="5" marginwidth="0" marginheight="0">
+    <a href="http://www.codeendeavors.com"><img src="logo.gif" border="0"></a>
+    <h1>DotNetNuke Keywordification Module</h1>
+    <h2>Introduction</h2>
+    <p>Congratulations! You have created your own AJAX enabled DotNetNuke Module.&nbsp; Please
+        take a few minutes to read this document, which will help you install and configure
+        your new module.</p>
+    <hr />
+    <h2 class="important">* Important *</h2>
+    In order to provide the optimal experience, this template has made the following assumptions
+    <ol>
+        <li>The directory structure where you created your module has configured a lib directory with the baseline files your module will reference.
+        The directory structure will look like this
+        <ul class="directory">
+            <li><i>&nbsp;* RootDevFolder</i> 
+                <ul>
+                    <li>&nbsp;lib
+                    <ul>
+                        <li>&nbsp;DotNetNuke.dll</li>
+                        <li>&nbsp;Microsoft.ApplicationBlocks.Data.dll</li>
+                        <li>&nbsp;System.Web.Extensions.dll</li>
+                        <li>&nbsp;<i>** DotNetNuke.WebUtility.dll</i></li>
+                    </ul>
+                    </li>
+                    <li><i>&nbsp;* Module Project Folder</i></li>
+                </ul>            
+            </li>
+        </ul>
+            * <i>Italic folders can be any name</i> <br />
+            ** <i>ClientAPI must be v4.x or later</i> <br />
+        </li>
+        <li>In order to take advantage of the automatic packaging and deployment you must have the MS Build Community Tasks installed.  
+        The installation can be found <a href="http://msbuildtasks.tigris.org/">here.</a><br />
+        </li>
+    </li>
+    </ol>
+    
+    <hr />
+    <h3>Installing your module</h3>
+    The module already automatically packages your code for you into the standard zip file when you build your project.  Both the installation
+    and distribution packages are created in your RootDevFolder\deploy folder.  The module has also been configured to automatically deploy itself to
+    the dotnetnuke installation specified in the wizard.  
+    To install the module simply navigate to the following url <a href="http://localhost/DotNetNuke_2/install/install.aspx?mode=installresources">http://localhost/DotNetNuke_2/install/install.aspx?mode=installresources</a>
+    (where DotNetNuke_2 is the name of your site)
+    <br />
+    <br />
+    To change the configuration of where it gets deployed follow these directions
+    <ol>
+        <li>Open your DNNModule.targets file.</li>
+        <li>Locate the line <span style="font-size: 12pt; color: blue; line-height: 115%;
+            font-family: 'Courier New'; mso-no-proof: yes">&lt;</span><span style="font-size: 12pt;
+                color: #a31515; line-height: 115%; font-family: 'Courier New'; mso-no-proof: yes">DotNetNukeDir</span><span
+                    style="font-size: 12pt; color: blue; line-height: 115%; font-family: 'Courier New';
+                    mso-no-proof: yes">&gt;&lt;/</span><span style="font-size: 12pt; color: #a31515;
+                        line-height: 115%; font-family: 'Courier New'; mso-no-proof: yes">DotNetNukeDir</span><span
+                            style="font-size: 12pt; color: blue; line-height: 115%; font-family: 'Courier New';
+                            mso-no-proof: yes">&gt;</span> and place your dotnetnuke folder location in between (<span style="font-size: 12pt"><span style="color: #0000ff; font-family: Courier New">&lt;</span><span style="color: #a31515; line-height: 115%; font-family: 'Courier New'; mso-no-proof: yes">DotNetNukeDir</span><span
+                    style="color: blue; line-height: 115%; font-family: 'Courier New';
+                    mso-no-proof: yes">&gt;<span
+                        style="color: #000000; font-family: Courier New">C:\Users\Oliver\Programming\DotNetNuke\trunk\Website</span>&lt;/</span><span style="color: #a31515;
+                        line-height: 115%; font-family: 'Courier New'; mso-no-proof: yes">DotNetNukeDir</span><span
+                            style="color: blue; line-height: 115%; font-family: 'Courier New';
+                            mso-no-proof: yes">&gt;</span></span>)</li>
+        <li>Optionally set the deployment of the pdb file with the <span style="font-size: 12pt;
+            color: blue; font-family: 'Courier New'; mso-no-proof: yes; mso-fareast-font-family: Calibri;
+            mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: EN-US;
+            mso-bidi-language: AR-SA">&lt;</span><span style="font-size: 12pt; color: #a31515;
+                font-family: 'Courier New'; mso-no-proof: yes; mso-fareast-font-family: Calibri;
+                mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: EN-US;
+                mso-bidi-language: AR-SA">DeployPDB</span><span style="font-size: 12pt; color: blue;
+                    font-family: 'Courier New'; mso-no-proof: yes; mso-fareast-font-family: Calibri;
+                    mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: EN-US;
+                    mso-bidi-language: AR-SA">&gt;</span><span style="font-size: 12pt; font-family: 'Courier New';
+                        mso-no-proof: yes; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin;
+                        mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA">1<span
+                            style="color: blue">&lt;/</span><span style="color: #a31515">DeployPDB</span><span
+                                style="color: blue">&gt; </span></span>setting.&nbsp;</li>
+        <li>Close and re-open your project.  Your changes to the MSBuild script will not take affect until you do so!</li>                                
+        <li>After compiling your module, the installation file will be copied to your dotnetnuke
+            site ready to invoke installation.&nbsp; </li>
+    </ol>
+    Your module should now be installed, and you can add it to a page in the usuall manner.
+    <hr />
+    <h3>Further Resources</h3>
+    <p>The information in this page is only an overview. For more information, visit <a href="http://www.codeendeavors.com">www.codeendeavors.com</a>.
+    </p>
+</body>
+</html>
