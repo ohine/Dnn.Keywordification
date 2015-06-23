@@ -1,5 +1,9 @@
-﻿v0.1.xxxx - TBD<br/>
--<br/><br/>
+﻿v0.1.2193 - 6/22/2015<br/>
+-built for dnn v7.2.0.607 and greater<br/>
+-upgrade to visual studio 2013 project<br/>
+-upgrade to .net 4.0<br/>
+-added cancel button when data is loaded<br/>
+-general cleanup<br/><br/>
 
 v0.0.423 : 8/17/2010 - 1am<br/>
 -replaced TabInfo with MiniTabInfo to only send back the fields exposed for editing in the datagrid<br/><br/>
