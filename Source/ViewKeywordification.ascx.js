@@ -83,11 +83,11 @@ WinDoH.ViewKeywordification.prototype =
             colNames: ['#',this.getMessage('Column.Priority'), this.getMessage('Column.TabName'), this.getMessage('Column.Title'), this.getMessage('Column.Keywords'), this.getMessage('Column.Description')],
             colModel: [
                 { name: 'TabID', index: 'TabID', hidden: true },
-                { name: 'SiteMapPriority', index: 'SiteMapPriority',width:45, hidden:false, editable:true },
-                { name: 'TabName', index: 'TabName', width:150, hidden: false, editable: true },
-                { name: 'Title', index: 'Title', width: 125, editable: true },
-                { name: 'KeyWords', index: 'KeyWords', width: 100, editable: true },
-                { name: 'Description', index: 'Description', width: 400, editable: true, edittype: 'textarea', editoptions: { rows: 3} }
+                { name: 'SiteMapPriority', index: 'SiteMapPriority',width:30, hidden:false, editable:true, align: 'center', resizable:false },
+                { name: 'TabName', index: 'TabName', width:100, hidden: false, editable: true },
+                { name: 'Title', index: 'Title', width: 175, editable: true, edittype: 'textarea', editoptions:{maxlength:'69', rows: 3} },
+                { name: 'KeyWords', index: 'KeyWords', width: 100, editable: true, edittype: 'textarea', editoptions: { rows: 3}},
+                { name: 'Description', index: 'Description', width: 400, editable: true, edittype: 'textarea', editoptions: {maxlength:'170',  rows: 3} }
             ],
             jsonReader: {
                 root: "rows",
@@ -102,8 +102,8 @@ WinDoH.ViewKeywordification.prototype =
             viewrecords: true,
             rowNum:-1, 
             sortorder: "desc",
-            height: "100%",
-            width: "100%",
+            height: "auto",
+            width: "960",
             caption: this.getMessage('Grid.Title'),
             onSelectRow: function(ids) {
                 var pd = $('#' + this.id).getPostData();
