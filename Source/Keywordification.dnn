@@ -11,6 +11,7 @@
             </owner>
             <license src="license.txt" />
             <releaseNotes src="releasenotes.txt" />
+			<azureCompatible>true</azureCompatible>
             <dependencies>
                 <dependency type="Type">DotNetNuke.UI.Utilities.MSAJAX</dependency>
             </dependencies>
