@@ -113,6 +113,7 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\DnnController.vb" />
     <Compile Include="Components\PagedResult.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="Components\AjaxPortalModuleBase.vb">
@@ -129,6 +130,7 @@
   <ItemGroup>
     <None Include="App_LocalResources\ViewKeywordification.ascx.resx" />
     <None Include="Keywordification.dnn" />
+    <Content Include="releasenotes.txt" />
     <Content Include="web.config" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
@@ -151,7 +153,6 @@
     <Content Include="ViewKeywordification.ascx.js" />
     <Content Include="ajaxanim.gif" />
     <Content Include="license.txt" />
-    <Content Include="releasenotes.txt" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
