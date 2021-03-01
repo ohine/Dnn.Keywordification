@@ -1,6 +1,6 @@
 ﻿/* Module Specific CSS */
 
-@import url(jqgrid/css/ui.jqgrid.css);
+@import url(jqgrid/css/ui.jqgrid.min.css);
 
 .ceLabel
 {
