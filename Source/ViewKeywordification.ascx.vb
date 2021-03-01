@@ -35,8 +35,8 @@ Namespace Modules.Keywordification
         '- Adding the reference here ensures that the MS AJAX script is run before our script which uses things like Type.registerNamespace run
         '-------------------------------------------------------------------------------------------------------------
         Protected Sub AjaxPortalModuleBase_AddScriptReferences(ByVal references As List(Of ScriptReference)) Handles MyBase.AddScriptReferences
-            references.Add(New System.Web.UI.ScriptReference(Me.ControlPath & "jqgrid/js/i18n/grid.locale-en.js"))
-            references.Add(New System.Web.UI.ScriptReference(Me.ControlPath & "jqgrid/js/jquery.jqGrid.min.js"))
+            references.Add(New System.Web.UI.ScriptReference(Me.ControlPath & "jqgrid/i18n/min/grid.locale-en.js"))
+            references.Add(New System.Web.UI.ScriptReference(Me.ControlPath & "jqgrid/jquery.jqGrid.min.js"))
             references.Add(New System.Web.UI.ScriptReference(Me.ControlPath & "ViewKeywordification.ascx.js"))
         End Sub
 

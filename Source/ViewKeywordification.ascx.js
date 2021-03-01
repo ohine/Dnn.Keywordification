@@ -106,7 +106,7 @@ WinDoH.ViewKeywordification.prototype =
             width: "960",
             caption: this.getMessage('Grid.Title'),
             onSelectRow: function(ids) {
-                var pd = $('#' + this.id).getPostData();
+                var pd = $('#' + this.id).getGridParam('postData');
                 var r = null;
                 $.each(pd, function(i) { if (i == 'baseclass') { r = pd[i]; } });
 
@@ -119,7 +119,7 @@ WinDoH.ViewKeywordification.prototype =
         });
        
         var tempthis = this;
-        $('#' + this.get_ns() + 'jqgrid').setPostData({ baseclass: tempthis });
+        $('#' + this.get_ns() + 'jqgrid').setGridParam({ postData: { baseclass: tempthis } });
 
 
 
